@@ -1,0 +1,126 @@
+<!-- Vincent McFaul 0403150139 & Gustav Andersson 0212165450 -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hammurabi</title>
+	<link rel="	sheet" type="text/css" href="hammurabi.css">
+	<script type="text/javascript" src="hammurabi.js"></script>
+</head>
+
+<body onload="gameStart();">
+	<h1>Den store Hammurabi!</h1>
+	<h2 id="year">TEXT-SOM-BYTS-UT-AV-JS-FILEN</h2>
+
+	<div id="uppervisable">
+		<div id="side_by_side">
+			<div id="left_info">
+				<ul id="people">
+				<li id="starved">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				<li id="newcomers">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				<li id="population">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				</ul>
+		
+				<ul id="economy">
+				<li id="acres">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				<li id="bushels">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				<li id="harvest">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				<li id="rats">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				<li id="price">TEXT-SOM-BYTS-UT-AV-JS-FILEN</li>
+				</ul>
+			</div>
+
+			<form id="right_sliders"	>
+				<fieldset class="fieldset">
+				<legend>Tunnland som ska säljas/köpas: <span id="outputAcrestosellbuy"></span></legend>
+				<input type="button" value="-" id="minusbuttonAcrestosellbuy" onclick="onChangeAcres('minusbuttonAcrestosellbuy');">
+				<input type="range" id="sliderAcrestosellbuy" onchange="onChangeAcres('sliderAcrestosellbuy');">
+				<input type="button" value="+" id="plusbuttonAcrestosellbuy" onclick="onChangeAcres('plusbuttonAcrestosellbuy');">
+				</fieldset>
+			
+				<fieldset class="fieldset">
+				<legend>Feed people: <span id="outputFeedpeople"></span></legend>
+				<input type="button" value="-" id="minusbuttonFeedpeople" onclick="onChangeFeeding('minusbuttonFeedpeople');">
+				<input type="range" id="sliderFeedpeople" onchange="onChangeFeeding('sliderFeedpeople');">
+				<input type="button" value="+" id="plusbuttonFeedpeople" onclick="onChangeFeeding('plusbuttonFeedpeople');">
+				</fieldset>
+
+				<fieldset class="fieldset">
+				<legend>Plantera med utsäde: <span id="outputPlantwithseed"></span></legend>
+				<input type="button" value="-" id="minusbuttonPlantwithseed" onclick="onChangePlanting('minusbuttonPlantwithseed');">
+				<input type="range" id="sliderPlantwithseed" onchange="onChangePlanting('sliderPlantwithseed');">
+				<input type="button" value="+" id="plusbuttonPlantwithseed" onclick="onChangePlanting('plusbuttonPlantwithseed');">
+				</fieldset>
+			</form>
+		</div>
+
+		<div id="center_buttons">
+			<button type="button" onclick="gameStart();">Restart</button>
+			<button type="button" onclick="finishTurn();">Det är min order!</button>
+			<button type='button' onclick="toggleText()">Hjälp</button>
+		</div>
+	</div>
+
+	<div id='togglevisable'>	
+		<div id="extra_layer_rules">
+			<div id="togglerules" style='display: none'>
+				<h2>Spelregler</h2>
+				<ol>
+				<li>Spelet pågår i 10 år, där varje år motsvarar en omgång.</li>
+				<li>Varje år måste du ange hur många skäppor spannmål du vill fördela till att köpa (eller sälja) 
+				tunnland mark, försörja din befolkning och plantera grödor inför nästa år.</li>
+				<li>Varje individ behöver 20 skäppor spannmål varje år för att överleva och kan som mest bruka 10 
+				tunnland mark.</li>
+				<li>För att så frön på varje tunnland mark krävs en skäppa spannmål.</li>
+				<li>Priset för varje tunnland mark varierar från 17 skäppor per tunnland till 26 skäppor.</li>
+				<li>Om förhållandena i ditt land någonsin blir tillräckligt dåliga kommer folket att störta dig och du 
+				kommer inte att avsluta din 10-åriga mandatperiod.</li>
+				<li>Om du lyckas nå det elfte året kommer din regering att utvärderas och du kommer att rangordnas mot 
+				historiska storheter.</li>
+				</ol>
+			</div>	
+		</div>
+
+		<div id="extra_layer_strat">
+			<div id="togglestrat" style='display: none'>
+				<h2>Strategi</h2>
+				<ol>
+				<li>Börja med att försöka ge hela, eller de flesta, av din befolkning 20 enheter mat per person.</li>
+				<li>Försök att plantera frön på all din mark, förutsatt att du har tillräckligt med folk och tillräckligt 
+				med spannmål.</li>
+				<li>Om du har spannmål kvar, kan du spendera lite på att köpa ytterligare tunnland mark, särskilt om priset 
+				är rätt. Om du inte hade tillräckligt med spannmål för mat och utsäde, kan du behöva sälja en del av din 
+				mark, förhoppningsvis, till ett bra pris.</li>
+				</ol>
+			</div>	
+		</div>
+	</div>
+
+	<div id="lowervisable">
+		<div id="background">
+			<h2>Bakgrund</h2>
+			<p>Hammurabi, en babylonsk kung som regerade för över 3 700 år sedan, är mest känd för 
+			Hammurabis kodex, en av de tidigaste kända lagböckerna. Denna kodex innehöll omfattande 
+			lagar och straff som reglerade babylonskt samhälle. Han var också en framstående militärledare 
+			som utvidgade sitt rike genom erövringar i Mesopotamien. Hammurabi är en viktig figur i antikens 
+			historia och hans lagar har haft en långvarig påverkan på rättssystem över hela världen. Hans 
+			princip "öga för öga, tand för tand" är särskilt känd och användes för att fastställa straff 
+			som var proportionerliga till brottet. Hammurabis regeringstid markerar en betydelsefull epok i 
+			det antika Mesopotamiens utveckling.</p>
+		</div>
+
+		<div id="references">
+			<h2>Källor</h2>
+			<ul>
+			<li><a href="https://www.britannica.com/biography/Hammurabi">britannica.com</a></li>
+			<li><a href="https://www.history.com/topics/ancient-middle-east/hammurabi">history.com</a></li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+
+</html>

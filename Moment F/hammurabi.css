@@ -1,0 +1,172 @@
+/* Vincent McFaul 0403150139 & Gustav Andersson 0212165450  */
+
+body {
+	background-image: url("Background_Image.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	padding: 2rem;
+	font-family: "Papyrus";
+}
+
+h1 {
+	font-size: 30pt;
+	text-align: center;
+}
+
+#year {
+	text-align: center;
+}
+
+p {
+	font-size: 16pt;
+}
+
+li {
+	font-size: 16pt;
+}
+
+fieldset {
+	border: none;
+}
+
+/* ---------------------------------------- */
+
+#side_by_side {
+	display: grid;
+	margin: 0 auto;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 3fr;
+}
+
+#left_info {
+	grid-column-start: 1;
+  	grid-column-end: 1;
+	grid-row-start: 1;
+	grid-row-end: 1;
+	margin-left: auto; 
+	margin-right: 0;
+	padding-right: 0.5rem;
+}
+
+#right_sliders {
+	grid-column-start: 2;
+	grid-column-end: 2;
+  	grid-row-start: 1;
+ 	grid-row-end: 1;
+	padding-left: 0.5rem;
+}
+
+#center_buttons {
+	display: grid;
+	margin: 0 auto;
+	grid-template-columns: 0.5fr 1fr 0.5fr;
+	grid-template-rows: 1fr;
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 1;
+ 	grid-row-end: 1;
+	align-content: center;
+	padding: 0.5rem;
+	border-radius: 10%;
+}
+
+/* ---------------------------------------- */
+
+#togglevisable {
+	display: grid;
+	margin: 0 auto;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 5fr;
+}
+
+#extra_layer_rules {
+	grid-column-start: 1;
+	grid-column-end: 1;
+  	grid-row-start: 1;
+ 	grid-row-end: 1;
+	background-color:rgba(252, 224, 195, 0.553); 
+	margin: 0.5rem;
+}
+
+#extra_layer_strat {
+	grid-column-start: 2;
+	grid-column-end: 2;
+  	grid-row-start: 1;
+ 	grid-row-end: 1;
+	background-color:rgba(252, 224, 195, 0.553); 
+	margin: 0.5rem;
+}
+
+/* ---------------------------------------- */
+
+#lowervisable {
+	display: grid;
+	margin: 0 auto;
+	grid-auto-flow: column;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 5fr;
+}
+
+#background {
+	grid-column-start: 1;
+	grid-column-end: 1;
+  	grid-row-start: 1;
+ 	grid-row-end: 1;
+	background-color:rgba(252, 224, 195, 0.553); 
+	margin: 0.5rem;
+}
+
+#references {
+	grid-column-start: 2;
+	grid-column-end: 2;
+  	grid-row-start: 1;
+ 	grid-row-end: 1;
+	background-color:rgba(252, 224, 195, 0.553); 
+	margin: 0.5rem;
+}
+
+/* ---------------------------------------- */
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30%;
+    cursor: pointer;
+    outline: none;
+    height: 15px;
+    border-radius: 16px;
+    background-color: #2b1206;
+    border: 2px solid rgb(0, 0, 0);
+
+  }
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: #ff7d04f9;
+    border-radius: 50%;
+    border: 2px solid #ff7d04f9;
+  }
+
+input[type="button"]{ 
+    padding: 15px 32px;
+    color:rgb(0, 0, 0); 
+    font-family: "Papyrus";
+    background-color:rgb(252, 224, 195); 
+    border:1px solid; 
+    border-radius: 4px;
+	font-size: 16pt;
+  } 
+
+button{ 
+    padding: 15px 32px;
+    color:rgb(1, 5, 1); 
+    font-family: "Papyrus";
+    background-color:rgb(252, 224, 195); 
+    border:1px solid; 
+    border-radius: 4px;
+	font-size: 16pt;
+  }
